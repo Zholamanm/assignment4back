@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Rick and Morty Quiz</h1>
+
+    <form id="quizForm" action="/quiz/submit" method="post" onsubmit="return confirm('Вы уверены, что хотите отправить викторину?');">
+        <ol class="list-group">
+            <li class="list-group-item">
+                <p>Какая марка кроссовок является самой популярной?</p>
+                <div class="form-check">
+                    <input type="radio" name="q1" value="a" class="form-check-input">
+                    <label class="form-check-label">а) Nike</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q1" value="b" class="form-check-input">
+                    <label class="form-check-label">б) Adidas</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q1" value="c" class="form-check-input">
+                    <label class="form-check-label">в) Reebok</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q1" value="d" class="form-check-input">
+                    <label class="form-check-label">г) Puma</label>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <p>Какая модель кроссовок считается классикой?</p>
+                <div class="form-check">
+                    <input type="radio" name="q2" value="a" class="form-check-input">
+                    <label class="form-check-label">а) Nike Air Force 1</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q2" value="b" class="form-check-input">
+                    <label class="form-check-label">б) Adidas Superstar</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q2" value="c" class="form-check-input">
+                    <label class="form-check-label">в) Converse Chuck Taylor</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q2" value="d" class="form-check-input">
+                    <label class="form-check-label">г) Reebok Classic</label>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <p>Какая марка выпускает кроссовки с технологией Boost?</p>
+                <div class="form-check">
+                    <input type="radio" name="q3" value="a" class="form-check-input">
+                    <label class="form-check-label">а) Nike</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q3" value="b" class="form-check-input">
+                    <label class="form-check-label">б) Adidas</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q3" value="c" class="form-check-input">
+                    <label class="form-check-label">в) Puma</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q3" value="d" class="form-check-input">
+                    <label class="form-check-label">г) Reebok</label>
+                </div>
+            </li>
+
+            <li class="list-group-item">
+                <p>Какая модель кроссовок ассоциируется с баскетболистом Майклом Джорданом?</p>
+                <div class="form-check">
+                    <input type="radio" name="q4" value="a" class="form-check-input">
+                    <label class="form-check-label">а) Nike Air Max</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q4" value="b" class="form-check-input">
+                    <label class="form-check-label">б) Adidas Yeezy</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q4" value="c" class="form-check-input">
+                    <label class="form-check-label">в) Nike Air Jordan</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="q4" value="d" class="form-check-input">
+                    <label class="form-check-label">г) Reebok Pump</label>
+                </div>
+            </li>
+        </ol>
+
+        <button type="submit" class="btn btn-primary mt-3">Отправить</button>
+    </form>
+
+
+    <div id="timer" class="mt-4">Осталось времени: <span id="countdown">30</span> секунд</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    let countdown = 30;
+    const countdownElement = document.getElementById('countdown');
+    const timerElement = document.getElementById('timer');
+
+    const timer = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+
+        if (countdown <= 0) {
+            clearInterval(timer);
+            timerElement.textContent = 'Время вышло! Отправка викторины...';
+            document.getElementById('quizForm').submit();
+        }
+    }, 1000);
+</script>
+</body>
+</html>

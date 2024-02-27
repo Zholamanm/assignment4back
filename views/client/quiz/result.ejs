@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат викторины Рик и Морти</title>
+    <meta property="og:title" content="Результат викторины Рик и Морти">
+    <meta property="og:description" content="Я набрал <%= score %> из <%= totalQuestions %> в викторине Рик и Морти!">
+    <meta property="og:image" content="https://your-quiz-image-url.com">
+    <meta property="og:url" content="https://finalv2.onrender.com/quiz/submit?score=<%= score %>&totalQuestions=<%= totalQuestions %>">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #eceff1;
+        }
+
+        .quiz-result {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 25px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #42a5f5;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .share-title {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .social-buttons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 8px;
+        }
+
+        .home-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-result">
+    <h1 class="mb-4">Результат викторины</h1>
+
+    <p>Ваш счет: <%= score %> / <%= totalQuestions %></p>
+
+    <div class="share-title">Поделитесь результатом</div>
+
+    <div class="social-buttons">
+        <a id="facebookShare" href="#" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Поделиться на Facebook"/>
+        </a>
+        <a id="twitterShare" href="#" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/twitter-circled.png" alt="Твитнуть в Twitter"/>
+        </a>
+        <a id="telegramShare" href="#" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/000000/telegram-app.png" alt="Поделиться в Telegram"/>
+        </a>
+    </div>
+
+    <a href="/" class="btn btn-primary home-btn">Вернуться на главную</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const facebookShare = document.getElementById('facebookShare');
+        const twitterShare = document.getElementById('twitterShare');
+        const telegramShare = document.getElementById('telegramShare');
+
+        const score = '<%= score %>';
+        const totalQuestions = '<%= totalQuestions %>';
+
+        const shareText = `Я прошел тест и получил ${score} из ${totalQuestions} в викторине Рик и Морти! Проверь себя: `;
+
+        const shareUrl = `https://finalv2.onrender.com/quiz/`;
+
+        facebookShare.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(shareText)}`;
+        twitterShare.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}&hashtags=RickAndMortyQuiz`;
+        telegramShare.href = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+    });
+</script>
+</body>
+</html>

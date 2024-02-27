@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--    <link rel="icon" href="favicon.ico">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Sneakers place</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+        .last-collection{
+            background: #5c746a;
+            background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIElEQVQoU2NcWuD6v2nfFwZcgFFdz/I/TlkGBobhoQAAGHYPccmxFlIAAAAASUVORK5CYII=) repeat;
+            color: #1c1c1c;
+            font-family: 'Raleway', sans-serif;
+            font-size: 5vw;
+            height: 850px;
+        }
+        .ul-collection {
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            transform-origin: top right;
+            transform: skewY(-4.398705355deg);
+            margin: 0 6.4vw 0 28%;
+        }
+        .li-collection {
+            list-style-type: none;
+            transform-origin: top left;
+            transform: skewY(4.398705355deg) rotatez(14.03624deg);
+            padding-top: 150%;
+            z-index: 1;
+            transition-property: z-index;
+            transition-duration: .3s;
+        }
+        .details{
+            position: absolute;
+            z-index: 2;
+            width: 98%;
+            height: 95%;
+            top: 0;
+            background-color: #DADDDF;
+            border-radius: 2vw;
+            box-shadow: inset 0px 0px 0px 7vw #FCF8F4;
+            box-sizing: border-box;
+            webkit-filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.4));
+            transform: rotate(0deg) translate(0, 0);
+            transition-property: transform;
+            transition-duration: .3s;
+        }
+
+        .h2-collection, .p-collection, .img-collection {
+            position: absolute;
+            z-index: 4;
+        }
+
+        .p-collection{
+            font-size:1.4em;
+            background-color: #FCF8F4;
+            padding: 2% 2.5% 2% 2.5%;
+        }
+        .p-collection:nth-child(2n){
+            top: 3%;
+            left: 5%;
+        }
+        .p-collection:nth-child(2n+1){
+            transform: rotatez(180deg);
+            bottom: 3%;
+            right: 5%;
+        }
+        .h2-collection{
+            text-align: center !important;
+            width: 122% !important;
+            left: -20% !important;
+            top: 26% !important;
+            transform: rotatez(-45deg) !important;
+            background-color: #FCF8F4 !important;
+            line-height: 140% !important;
+            transition-property: top !important;
+            transition-duration: .3s !important;
+            font-size: medium;
+            top: 60% !important;
+        }
+        .img-collection{
+            width: 64%;
+            top: 50%;
+            left: 50%;
+        }
+        .img-collection:nth-child(2n){
+            transform: translateX(-30%) translateY(5%) rotatez(135deg);
+            transition-property: width,transform;
+            transition-duration: .3s;
+        }
+        .img-collection:nth-child(2n+1){
+            transform: translateX(-70%) translateY(-105%) rotatez(-45deg);
+            transition-property: width,transform;
+            transition-duration: .3s;
+        }
+
+        .li-collection:hover{
+            z-index: 4;
+        }
+        .li-collection:hover .h2-collection{
+            top: 64%;
+        }
+        .li-collection:hover .details{
+            transform: rotate(-14.03624deg) translate(5.5%, 15%) scale(1.5);
+        }
+        .li-collection:hover .img-collection:nth-child(2n){
+            width: 60%;
+            transform: translateX(-15%) translateY(60%) rotatez(135deg);
+        }
+        .li-collection:hover .img-collection:nth-child(2n+1){
+            width: 120%;
+            transform: translateX(-65%) translateY(-75%) rotatez(-45deg);
+        }
+        @media (min-width:300px) {
+            .last-collection{
+                font-size: 2.75vw;
+            }
+            .ul-collection {
+                grid-template-columns: repeat(2,1fr);
+                grid-column-gap: 3vw;
+                margin: 0 3.9vw 0 15vw;
+            }
+            .details{
+                box-shadow: inset 0px 0px 0px 4vw #FCF8F4;
+            }
+        }
+
+        @media (min-width:600px) {
+            .last-collection{
+                font-size: 1.95vw;
+            }
+            .ul-collection {
+                grid-template-columns: repeat(3,1fr);
+                grid-column-gap: 2vw;
+                margin: 0 2.8vw 0 10vw;
+            }
+            .details{
+                box-shadow: inset 0px 0px 0px 2.8vw #FCF8F4;
+            }
+        }
+
+        @media (min-width:900px) {
+            .last-collection{
+                font-size: 1.5vw;
+            }
+            .ul-collection {
+                grid-template-columns: repeat(4,1fr);
+                grid-column-gap: 1.5vw;
+                margin: 0 2.2vw 0 8vw;
+            }
+            .details{
+                box-shadow: inset 0px 0px 0px 2.2vw #FCF8F4;
+            }
+        }
+
+        @media (min-width:1200px) {
+            .last-collection{
+                font-size: 1.25vw;
+            }
+            .ul-collection {
+                grid-template-columns: repeat(5,1fr);
+                grid-column-gap: 1vw;
+                margin: 0 1.8vw 0 6.5vw;
+            }
+            .details{
+                box-shadow: inset 0px 0px 0px 1.8vw #FCF8F4;
+            }
+        }
+
+        @media (min-width:1500px) {
+            .last-collection{
+                font-size: 1vw;
+            }
+            .ul-collection {
+                grid-template-columns: repeat(6,1fr);
+                grid-column-gap: 1vw;
+                margin: 0 1.5vw 0 5.5vw;
+            }
+            .details{
+                box-shadow: inset 0px 0px 0px 1.5vw #FCF8F4;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<%- include('../partials/header') %>
+<div class="last-collection">
+    <ul class="ul-collection">
+        <% for (let i = 0; i < 12; i++) { %>
+            <% let product = sneakers[i]; %>
+            <li class="li-collection">
+                <div class="details">
+                    <h2 class="h2-collection"><%= product.name %></h2>
+                    <p class="p-collection">$<%= product.price.current.value %></p>
+                    <img class="img-collection" src="https://<%= product.imageUrl %>" alt="<%= product.title %>">
+                </div>
+            </li>
+        <% } %>
+    </ul>
+
+
+</div>
+<%- include('../partials/footer') %>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+</html>
