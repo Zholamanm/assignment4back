@@ -16,7 +16,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-mongoose.connect('mongodb+srv://zholaman223:SeqevtFE4u9dotdv@cluster0.rgbcvam.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://zholaman223:SeqevtFE4u9dotdv@cluster0.rgbcvam.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, connectTimeoutMS: 30000 })
     .then(() => console.log('Connected to MongoDB Atlas'))
     .catch(err => console.error('Could not connect to MongoDB Atlas', err));
 
