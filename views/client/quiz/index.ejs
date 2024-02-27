@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick and Morty Quiz</title>
+    <title>Sneakers Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Rick and Morty Quiz</h1>
+    <h1 class="text-center mb-4">Sneakers Quiz</h1>
 
     <form id="quizForm" action="/quiz/submit" method="post" onsubmit="return confirm('Вы уверены, что хотите отправить викторину?');">
         <ol class="list-group">
@@ -115,7 +115,7 @@
 
         if (countdown <= 0) {
             clearInterval(timer);
-            timerElement.textContent = 'Время вышло! Отправка викторины...';
+            timerElement.textContent = 'Время вышло!';
             document.getElementById('quizForm').submit();
         }
     }, 1000);
